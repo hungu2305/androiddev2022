@@ -6,9 +6,148 @@
     tools:context=".ForecastFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_margin="16dp"
+        android:orientation="vertical"
+        android:background="@color/design_default_color_primary_variant">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Mon" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/cloud"/>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Partly cloudy 24*C 32*C" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Tue" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/rainy"/>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Shower 20*C 27*C" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Wed" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/rainy"/>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Shower 20*C 27*C" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Thu" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/sunny"/>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Sunny 33*C 37*C" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Fri" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/cloud"/>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Cloudy 20*C 25*C" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="sat" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:src="@drawable/rainy"/>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Shower 20*C 23*C" />
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

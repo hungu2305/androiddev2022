@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
+
 import android.util.Log;
 
 public class WeatherActivity extends AppCompatActivity {
@@ -22,25 +23,13 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i("onStart", "inside onStart");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i("onResume", "inside onResume");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i("onPause", "inside onPause");
+        Log.i("onStart", "inside onStart" );
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i("onStop", "inside omStop");
+        Log.i("onStop", "inside onStop");
     }
 
     @Override
@@ -50,10 +39,20 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("onPause", "inside onPause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("onResume", "inside onResume");
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
         Log.i("Weather", "onCreate");
     }
-
 }
-
