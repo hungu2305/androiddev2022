@@ -3,15 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:id="@+id/fragment_forecast"
     tools:context=".ForecastFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:orientation="vertical"
-        android:background="@color/design_default_color_primary_variant">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
