@@ -2,4 +2,7 @@
     <string name="app_name">USTH Weather</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="weatherandforecast_fragment">weatherandforecast fragment</string>
+    <string name="weatherandforecast1_fragment">weatherandforecast1 fragment</string>
+    <string name="weatherandforecast2_fragment">weatherandforecast2 fragment</string>
 </resources>

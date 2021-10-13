@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".WeatherAndForecast1Fragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_weather"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:name="vn.edu.usth.weather.WeatherFragment"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_forecast"
+        android:name="vn.edu.usth.weather.ForecastFragment"
+        android:layout_below="@+id/fragment_weather"/>
+
+</LinearLayout>
