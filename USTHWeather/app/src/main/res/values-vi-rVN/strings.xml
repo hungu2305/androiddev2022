@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weatherandforecast_fragment">Fragment thoi tiet va forecast</string>
+    <string name="hello_blank_fragment">fragment blank</string>
+    <string name="weatherandforecast1_fragment">Fragment thoi tiet va forecast 1</string>
+    <string name="weatherandforecast2_fragment">Fragment thoi tiet va forecast 2</string>
+    <string name="app_name">Thời Tiết USTH</string>
+</resources>
