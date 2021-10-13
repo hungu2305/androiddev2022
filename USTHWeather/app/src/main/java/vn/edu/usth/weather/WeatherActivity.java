@@ -9,7 +9,10 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
 
+import com.google.android.material.tabs.TabLayout;
+
 public class WeatherActivity extends AppCompatActivity {
+    private TabLayout mTabLayout;
     private ViewPager mViewPager;
 
     @Override
@@ -23,11 +26,13 @@ public class WeatherActivity extends AppCompatActivity {
         WeatherFragment wf = WeatherFragment.newInstance("","");
         getSupportFragmentManager().beginTransaction().add(
                 R.id.container, wf).commit();
-
+        mTabLayout = findViewById(R.id.tab_layout);
         mViewPager = findViewById(R.id.view_pager);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         mViewPager.setAdapter(viewPagerAdapter);
+
+        mTabLayout.setupWithViewPager(mViewPager);
     }
 
     @Override
