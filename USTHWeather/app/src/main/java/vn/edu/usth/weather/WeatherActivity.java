@@ -1,13 +1,19 @@
 package vn.edu.usth.weather;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -19,6 +25,10 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         ForecastFragment ff = ForecastFragment.newInstance("", "");
         // Add the fragment to the 'container' FrameLayout
         getSupportFragmentManager().beginTransaction().add(
@@ -33,6 +43,32 @@ public class WeatherActivity extends AppCompatActivity {
         mViewPager.setAdapter(viewPagerAdapter);
 
         mTabLayout.setupWithViewPager(mViewPager);
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.refresh) {
+            Toast.makeText(getApplicationContext(), "Refresh now!!!", Toast.LENGTH_SHORT).show();
+        }
+        else if (id == R.id.setting) {
+            openPrefActivity();
+        }
+        return true;
+    }
+
+    public void openPrefActivity() {
+        Intent intent = new Intent(this, PrefActivity.class);
+        startActivity(intent);
     }
 
     @Override
