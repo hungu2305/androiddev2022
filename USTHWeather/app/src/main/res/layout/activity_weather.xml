@@ -9,12 +9,22 @@
     tools:context=".WeatherActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbar"
         android:background="@color/green"
         android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
-        app:title="USTH Weather"/>
+        app:title="USTH Weather">
+
+        <ImageButton
+            android:id="@+id/refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_refresh_24"
+            android:text="refresh"
+            android:layout_marginLeft="180dp"
+            android:background="@color/green"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"

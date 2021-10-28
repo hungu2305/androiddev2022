@@ -8,12 +8,17 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -21,6 +26,8 @@ import com.google.android.material.tabs.TabLayout;
 public class WeatherActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
+    ImageButton btnRefresh;
+    MyAsyncTask myAsyncTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +36,15 @@ public class WeatherActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        btnRefresh = (ImageButton) findViewById(R.id.refresh);
+        btnRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myAsyncTask = new MyAsyncTask(WeatherActivity.this);
+                myAsyncTask.execute();
+            }
+        });
 
         ForecastFragment ff = ForecastFragment.newInstance("", "");
         // Add the fragment to the 'container' FrameLayout
@@ -59,7 +75,7 @@ public class WeatherActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.refresh) {
-            final Handler handler = new Handler();
+            /*final Handler handler = new Handler();
 
             Thread t = new Thread(new Runnable() {
 
@@ -81,12 +97,15 @@ public class WeatherActivity extends AppCompatActivity {
 
                 }
             });
-            t.start();
+            t.start();*/
+
+
+            return true;
         }
         else if (id == R.id.setting) {
             openPrefActivity();
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
     public void openPrefActivity() {
