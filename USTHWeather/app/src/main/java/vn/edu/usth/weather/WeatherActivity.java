@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.Menu;
@@ -58,7 +59,29 @@ public class WeatherActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.refresh) {
-            Toast.makeText(getApplicationContext(), "Refresh now!!!", Toast.LENGTH_SHORT).show();
+            final Handler handler = new Handler();
+
+            Thread t = new Thread(new Runnable() {
+
+                @Override
+                public void run() {
+                    //This method is run in worked thread
+                    try {
+                        Thread.sleep(5000);
+                    }
+                    catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), "Network Connected!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }
+            });
+            t.start();
         }
         else if (id == R.id.setting) {
             openPrefActivity();
