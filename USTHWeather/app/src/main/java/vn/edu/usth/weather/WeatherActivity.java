@@ -26,7 +26,7 @@ import com.google.android.material.tabs.TabLayout;
 public class WeatherActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
-    ImageButton btnRefresh;
+    //ImageButton btnRefresh;
     MyAsyncTask myAsyncTask;
 
     @Override
@@ -37,14 +37,14 @@ public class WeatherActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        btnRefresh = (ImageButton) findViewById(R.id.refresh);
+        /*btnRefresh = (ImageButton) findViewById(R.id.refresh);
         btnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 myAsyncTask = new MyAsyncTask(WeatherActivity.this);
                 myAsyncTask.execute();
             }
-        });
+        });*/
 
         ForecastFragment ff = ForecastFragment.newInstance("", "");
         // Add the fragment to the 'container' FrameLayout
@@ -99,7 +99,8 @@ public class WeatherActivity extends AppCompatActivity {
             });
             t.start();*/
 
-
+            myAsyncTask = new MyAsyncTask(WeatherActivity.this);
+            myAsyncTask.execute();
             return true;
         }
         else if (id == R.id.setting) {
