@@ -1,5 +1,14 @@
 package vn.edu.usth.weather;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,28 +16,18 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.PersistableBundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.Toast;
-
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.concurrent.ExecutionException;
+
 
 public class WeatherActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     //ImageButton btnRefresh;
     MyAsyncTask myAsyncTask;
-
+    String url = "https://kenh14cdn.com/thumb_w/600/QuickNewsK14/107392794/2015/02/img_201502282130320133.jpeg";
+    ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +44,7 @@ public class WeatherActivity extends AppCompatActivity {
                 myAsyncTask.execute();
             }
         });*/
+
 
         ForecastFragment ff = ForecastFragment.newInstance("", "");
         // Add the fragment to the 'container' FrameLayout
@@ -99,8 +99,19 @@ public class WeatherActivity extends AppCompatActivity {
             });
             t.start();*/
 
+            //myAsyncTask = new MyAsyncTask(WeatherActivity.this);
+            //myAsyncTask.execute();
             myAsyncTask = new MyAsyncTask(WeatherActivity.this);
-            myAsyncTask.execute();
+
+            imageView = findViewById(R.id.imageView);
+            try {
+                Bitmap bitmap = myAsyncTask.execute(url).get();
+                imageView.setImageBitmap(bitmap);
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return true;
         }
         else if (id == R.id.setting) {
