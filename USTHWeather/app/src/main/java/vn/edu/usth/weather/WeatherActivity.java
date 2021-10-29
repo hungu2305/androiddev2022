@@ -2,6 +2,7 @@ package vn.edu.usth.weather;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
@@ -16,6 +17,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.tabs.TabLayout;
 
 
@@ -119,6 +125,7 @@ public class WeatherActivity extends AppCompatActivity {
                     error.printStackTrace();
                 }
             });
+
             Syn.getInstance(WeatherActivity.this).addToRequestQue(imageRequest);*/
             /*try {
                 Bitmap bitmap = myAsyncTask.execute(url).get();
@@ -128,7 +135,8 @@ public class WeatherActivity extends AppCompatActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }*/ //this is of lab 15
-            
+            imageView = findViewById(R.id.imageView);
+            requestImage();
             return true;
         }
         else if (id == R.id.setting) {
@@ -176,6 +184,23 @@ public class WeatherActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
         Log.i("Weather", "onCreate");
+    }
+    private void requestImage() {
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        ImageRequest imageRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
+            @Override
+            public void onResponse(Bitmap response) {
+                imageView.setImageBitmap(response);
+            }
+        }, 0, 0, ImageView.ScaleType.CENTER_CROP, null, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        requestQueue.add(imageRequest);
     }
 
 }
