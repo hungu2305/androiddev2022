@@ -1,7 +1,7 @@
 package vn.edu.usth.weather;
 
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
@@ -18,8 +18,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.concurrent.ExecutionException;
-
 
 public class WeatherActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
@@ -28,6 +26,9 @@ public class WeatherActivity extends AppCompatActivity {
     MyAsyncTask myAsyncTask;
     String url = "https://kenh14cdn.com/thumb_w/600/QuickNewsK14/107392794/2015/02/img_201502282130320133.jpeg";
     ImageView imageView;
+
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,17 +102,33 @@ public class WeatherActivity extends AppCompatActivity {
 
             //myAsyncTask = new MyAsyncTask(WeatherActivity.this);
             //myAsyncTask.execute();
-            myAsyncTask = new MyAsyncTask(WeatherActivity.this);
+            //myAsyncTask = new MyAsyncTask(WeatherActivity.this);
 
-            imageView = findViewById(R.id.imageView);
-            try {
+            /*imageView = (ImageView) findViewById(R.id.imageView);
+            ImageRequest imageRequest = new ImageRequest(url,
+                    new Response.Listener<Bitmap>() {
+                        @Override
+                        public void onResponse(Bitmap response) {
+                            imageView.setImageBitmap(response);
+                        }
+                    }, 0, 0, ImageView.ScaleType.CENTER_CROP, null, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(WeatherActivity.this, "" +
+                            "Something went wrong!", Toast.LENGTH_SHORT).show();
+                    error.printStackTrace();
+                }
+            });
+            Syn.getInstance(WeatherActivity.this).addToRequestQue(imageRequest);*/
+            /*try {
                 Bitmap bitmap = myAsyncTask.execute(url).get();
                 imageView.setImageBitmap(bitmap);
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
+            }*/ //this is of lab 15
+            
             return true;
         }
         else if (id == R.id.setting) {
